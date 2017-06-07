@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   root 'pictures#index'
   get 'pictures' => 'pictures#index'
 
-  get 'pictures/:id/edit' => "pictures#edit"
-  patch 'pictures/:id' => "pictures#update"
+  get 'pictures/:id/edit' => "pictures#edit", as: 'edit_picture'
+  patch 'pictures/:id' => "pictures#update", as: 'picture'
 
   delete 'pictures/:id' => 'pictures#destroy'
 end
