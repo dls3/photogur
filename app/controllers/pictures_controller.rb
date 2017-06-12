@@ -1,8 +1,16 @@
 class PicturesController < ApplicationController
 
   def index
-    @pictures = Picture.all
+    # @pictures = Picture.all(params[:id])
+    @most_recent_pictures = Picture.most_recent_five
+    @older_than_month_pictures = Picture.created_before(Time.utc(2017, "jun", 07, 20, 01, 01))
+    @pictures_from_year = Picture.pictures_year(2017)
   end
+
+  def self.pictures_year(year)
+    Picture.where("created_at LIKE ?", year.to_s + '%')
+  end
+
 
   def show
     @picture = Picture.find(params[:id])
