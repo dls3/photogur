@@ -5,6 +5,7 @@ class PicturesController < ApplicationController
     @most_recent_pictures = Picture.most_recent_five
     @older_than_month_pictures = Picture.created_before(Time.utc(2017, "jun", 07, 20, 01, 01))
     @pictures_from_2017 = Picture.pictures_year(2017)
+
     # @pictures_from_2016 = Picture.pictures_year(2016)
   end
 

@@ -17,4 +17,18 @@
   <p>
     <%= f.submit "Save" %>
   </p>
+  <% end %>
+
+<% if @picture.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prevented this article from being saved. Please try again</h2>
+
+    <ul>
+    <% @picture.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+
+  </div>
+
 <% end %>
