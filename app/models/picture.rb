@@ -13,7 +13,9 @@ class Picture < ApplicationRecord
   end
 
   def self.pictures_year(year)
-    Picture.where("created_at LIKE ?", year.to_s + '%')
+    start_year = DateTime.new(year)
+    end_year = DateTime.new(year).end_of_year
+    Picture.where("created_at BETWEEN ? AND ?", start_year, end_year)
   end
 
 end
