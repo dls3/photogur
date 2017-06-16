@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   patch 'pictures/:id' => "pictures#update", as: 'picture'
 
   delete 'pictures/:id' => 'pictures#destroy'
+
+  post 'users' => 'users#create'
+  get 'users' => 'users#new'
 end
