@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:id])
+    # raise 'hell'
+    @user = User.new(user_params)
     if @user.save
       redirect_to "/users"
     else
@@ -13,9 +14,15 @@ class UsersController < ApplicationController
     end
   end
 
+private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
 end
 
 
 
 
- # u = User.create :email => 'doug@email.com', password => 'abc123'
+ # u = User.create :email => 'doug@email.com', :password => 'abc123'
