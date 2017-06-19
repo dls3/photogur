@@ -28,10 +28,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  def picture_params
-    { title: params[:picture][:title], artist: params[:picture][:artist], url: params[:picture][:url] }
-  end
-
   def edit
     @picture = Picture.find(params[:id])
   end
@@ -51,6 +47,13 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to "/pictures"
+  end
+
+private
+
+  def picture_params
+    params.require(:picture).permit(:title, :artist, :url)
+    { title: params[:picture][:title], artist: params[:picture][:artist], url: params[:picture][:url] }
   end
 
 end
