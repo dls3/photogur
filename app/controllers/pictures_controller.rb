@@ -53,7 +53,6 @@ private
 
   def picture_params
     params.require(:picture).permit(:title, :artist, :url)
-    { title: params[:picture][:title], artist: params[:picture][:artist], url: params[:picture][:url] }
   end
 
 end

@@ -21,8 +21,3 @@ private
   end
 
 end
-
-
-
-
- # u = User.create :email => 'doug@email.com', :password => 'abc123'
